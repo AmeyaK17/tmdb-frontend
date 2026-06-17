@@ -38,10 +38,10 @@ jobs:
           node-version: '18'
       - name: Install dependencies
         run: npm install
-      
       - name: Build React app
         run: npm run build
-      
+        env:
+          REACT_APP_BEARER_TOKEN: ${{ secrets.REACT_APP_BEARER_TOKEN }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
