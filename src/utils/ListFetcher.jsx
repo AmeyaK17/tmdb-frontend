@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Item from "../Displays/Item";
+import Item from "../itemInfo/Item";
 
 const options = {
     method: 'GET',

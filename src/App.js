@@ -1,5 +1,5 @@
 import Movies from "./screens/Movies";
-import Detail from "./Displays/Detail";
+import Detail from "./itemInfo/Detail";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Trending from "./screens/Trending";
 import SearchResults from "./screens/SearchResults";
