@@ -14,6 +14,7 @@ const ListFetcher = (props) => {
 
     useEffect(() => {
         const url = `https://api.themoviedb.org/3/${props.endpoint}`;
+        console.log(process.env.REACT_APP_BEARER_TOKEN)
         const fetchItems = async () => {
             try {
                 console.log(`Fetching URL: ${url}`)
