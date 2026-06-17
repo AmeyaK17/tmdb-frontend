@@ -41,7 +41,7 @@ const Detail = () => {
     }, [itemId, type])
 
     return (
-        <div className="h-auto w-auto p-5 flex flex-col items-start">
+        <div className="h-auto w-screen p-5 flex flex-col items-start">
             <img
                 src={`${baseImageUrl}/w780${itemInfo.backdrop_path}`}
                 alt="backdrop"
