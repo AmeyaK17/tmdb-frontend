@@ -75,7 +75,7 @@ const NavBar = () => {
                     type="submit"
                     onClick={(event) => onClickHandler(event)}
                 >
-                    <FaSearch className="px-5 h-auto w-auto text-red-500"></FaSearch>
+                    <FaSearch className="px-2 h-auto w-auto text-xl text-red-500"></FaSearch>
                 </button>
             </form>
         </div>
