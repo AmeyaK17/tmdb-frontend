@@ -1,0 +1,8 @@
+{
+  "short_name": "TMDB App",
+  "name": "TMDB Frontend",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#032541",
+  "background_color": "#032541"
+}
