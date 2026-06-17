@@ -24,11 +24,11 @@ const NavBar = () => {
 
     const updateSearchQuery = (event) => {
         setSearchQuery(event.target.value)
-        console.log("Search Query = ", searchQuery)
     }
 
     const onClickHandler = (event) => {
-        navigate(`search/${searchQuery}`)
+        event.preventDefault()
+        navigate(`/search/${searchQuery}`)
     }
 
     const updateActivePage = (value) => {
@@ -71,12 +71,12 @@ const NavBar = () => {
                     className="px-2 bg-slate-700 border-2 border-transparent rounded-lg outline-none focus:border-red-500"
                 >
                 </input>
-                <FaSearch className="px-5 h-auto w-auto text-red-500">
-                    <button
-                        type="submit"
-                        onClick={(event) => onClickHandler(event)}
-                    >Search</button>
-                </FaSearch>
+                <button
+                    type="submit"
+                    onClick={(event) => onClickHandler(event)}
+                >
+                    <FaSearch className="px-5 h-auto w-auto text-red-500"></FaSearch>
+                </button>
             </form>
         </div>
     )

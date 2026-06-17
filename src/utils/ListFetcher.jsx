@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Item from "../itemInfo/Item";
+import { HiEmojiSad } from "react-icons/hi";
 
 const options = {
     method: 'GET',
@@ -14,8 +15,6 @@ const ListFetcher = (props) => {
 
     useEffect(() => {
         const url = `https://api.themoviedb.org/3/${props.endpoint}`;
-        console.log("Checking Environment:", process.env);
-        console.log(process.env.REACT_APP_BEARER_TOKEN)
         const fetchItems = async () => {
             try {
                 console.log(`Fetching URL: ${url}`)
@@ -36,13 +35,22 @@ const ListFetcher = (props) => {
 
     return (
         <div className="p-5 grid grid-cols-4 gap-4">
-            {itemsList.map((item, index) => {
-                return (
-                    <Item
-                        item={item}
-                        key={index}
-                    ></Item>)
-            })}
+            {
+                (itemsList && itemsList.length > 0)
+                    ? itemsList.map((item, index) => {
+                        return (
+                            <Item
+                                item={item}
+                                key={index}
+                            ></Item>)
+                    })
+                    : <div
+                        className="col-span-4 flex justify-center items-center text-xl"
+                    >
+                        No result found
+                        <HiEmojiSad className="mx-2 text-2xl text-amber-300"></HiEmojiSad>
+                    </div>
+            }
         </div>
     )
 }

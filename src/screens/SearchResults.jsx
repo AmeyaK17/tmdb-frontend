@@ -15,7 +15,7 @@ const filters = [
 ]
 
 const SearchResults = () => {
-    const { keyword } = useParams()
+    const { keyword = "" } = useParams()
     const [type, setType] = useState("movie")
 
     const updateType = (type) => {
