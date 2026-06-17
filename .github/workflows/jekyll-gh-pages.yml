@@ -35,15 +35,15 @@ jobs:
         with:
           node-version: '18'
       - name: Install dependencies
-        run: cd frontend/movie-app && npm install
+        run: npm install
       
       - name: Build React app
-        run: cd frontend/movie-app && npm run build
+        run: npm run build
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './frontend/movie-app/build'
+          path: './build'
 
   # Deployment job
   deploy:
