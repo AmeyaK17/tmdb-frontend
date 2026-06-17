@@ -38,15 +38,19 @@ jobs:
           node-version: '18'
       - name: Install dependencies
         run: npm install
+      - name: Debug env
+        run: echo "Key length = ${#REACT_APP_BEARER_TOKEN}"
+        env:
+          REACT_APP_TMDB_API_KEY: ${{ vars.REACT_APP_BEARER_TOKEN }}
       - name: Build React app
         run: npm run build
         env:
-          REACT_APP_BEARER_TOKEN: ${{ secrets.REACT_APP_BEARER_TOKEN }}
+          REACT_APP_BEARER_TOKEN: ${{ vars.REACT_APP_BEARER_TOKEN }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: './build'
-
+    
   # Deployment job
   deploy:
     environment:
