@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import Movies from "./screens/Movies";
+import Detail from "./Displays/Detail";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Trending from "./screens/Trending";
+import SearchResults from "./screens/SearchResults";
+import TvShows from "./screens/TvShows";
+import Layout from "./utils/Layout";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <Trending />,
+      },
+      {
+        path: "/trending",
+        element: <Trending />,
+      },
+      {
+        path: "/movies",
+        element: <Movies />,
+      },
+      {
+        path: "/tv",
+        element: <TvShows />,
+      },
+      {
+        path: "/detail/:type/:movieId",
+        element: <Detail />,
+      },
+      {
+        path: "/search/:keyword",
+        element: <SearchResults />,
+      },
+    ],
+  },
+]);
+
+const App = () => {
+  return <RouterProvider router={router} />;
+};
 
 export default App;
