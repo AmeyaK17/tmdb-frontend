@@ -38,10 +38,6 @@ jobs:
           node-version: '18'
       - name: Install dependencies
         run: npm install
-      - name: Debug env
-        run: echo "Key length = ${#REACT_APP_BEARER_TOKEN}"
-        env:
-          REACT_APP_TMDB_API_KEY: ${{ vars.REACT_APP_BEARER_TOKEN }}
       - name: Build React app
         run: npm run build
         env:
